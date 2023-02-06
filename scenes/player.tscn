@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/art/kid/idle1.png" type="Texture" id=1]
+[ext_resource path="res://resources/art/kid/sidewalk1.png" type="Texture" id=2]
+[ext_resource path="res://resources/art/kid/back2.png" type="Texture" id=3]
+[ext_resource path="res://resources/art/kid/sidewalk2.png" type="Texture" id=4]
+[ext_resource path="res://resources/art/kid/back1.png" type="Texture" id=5]
+[ext_resource path="res://resources/art/kid/idle2.png" type="Texture" id=6]
+[ext_resource path="res://scenes/player.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36, 57 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "backwards",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "sidewalk",
+"speed": 5.0
+} ]
+
+[node name="player" type="KinematicBody2D"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.5, 2 )
+scale = Vector2( 1.21538, 1.20833 )
+frames = SubResource( 2 )
+animation = "sidewalk"
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -2, 21 )
+current = true
+offset_v = -1.0
