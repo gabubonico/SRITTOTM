@@ -41,7 +41,7 @@ position = Vector2( 1365, 390 )
 scale = Vector2( 4.5, 1 )
 
 [node name="troll" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1381, 592 )
+position = Vector2( 1381, 476 )
 
 [node name="Area2D" type="Area2D" parent="troll"]
 position = Vector2( -4, 50 )
@@ -445,6 +445,7 @@ shape = SubResource( 3 )
 position = Vector2( 0.499998, -1 )
 scale = Vector2( 0.716912, 1 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="player" parent="." instance=ExtResource( 3 )]

@@ -19,8 +19,8 @@ func _ready():
 	"todo el mundo elige si lo piensas","...","bueno","¿estás llorando?",
 	"ya, ya. lo siento","no es nada fácil esto","como iba diciendo",
 	"es cierto que todo el mundo elige","y yo creo que en cierto modo",
-	"eso nos hace libres, creo","siempre tendremos a lo lejos un faro",
-	"de que algun dia las cosas serán mejor","y que nos mueve a ir hacia él",
+	"eso nos hace libres, supongo","...","ademas","siempre hay un motivo por el que la gente elige vivir",
+	"yo creo que al final","siempre hay un horizonte al que perseguir",
 	"esta claro que a veces no lo vemos",
 	"'lo mejor esta por llegar!' suelen decir",
 	"...","en realidad no hay un final",
@@ -43,7 +43,9 @@ func _on_conversation_pressed():
 		yield(get_tree().create_timer(1.5),"timeout")
 		$ending.show()
 	else:
+		var types = $trollsprite.frames.get_animation_names()
 		$Label.text = convo[index]
+		$trollsprite.animation = types[randi() % types.size()]
 		index += 1
 		
 	if $Label.text == "que ya has elegido":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://resources/art/textbox.png" type="Texture" id=1]
 [ext_resource path="res://resources/art/troll/closeup1.png" type="Texture" id=2]
@@ -6,8 +6,12 @@
 [ext_resource path="res://scenes/conversation.gd" type="Script" id=4]
 [ext_resource path="res://resources/spookharder_by_gassstype.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://resources/art/endings/badending.png" type="Texture" id=6]
+[ext_resource path="res://resources/art/troll/closeup6.png" type="Texture" id=7]
 [ext_resource path="res://scenes/ending.gd" type="Script" id=8]
 [ext_resource path="res://resources/cees_hand_font_by_nthspace.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://resources/art/troll/closeup5.png" type="Texture" id=10]
+[ext_resource path="res://resources/art/troll/closeup3.png" type="Texture" id=11]
+[ext_resource path="res://resources/art/troll/closeup4.png" type="Texture" id=12]
 
 [sub_resource type="InputEventAction" id=2]
 action = "move_right"
@@ -20,6 +24,16 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "der",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "izq",
 "speed": 5.0
 } ]
 
@@ -59,10 +73,9 @@ margin_left = -800.0
 margin_top = -600.0
 
 [node name="trollsprite" type="AnimatedSprite" parent="."]
-position = Vector2( 453, 220 )
-scale = Vector2( 1.56452, 1.35408 )
+position = Vector2( 482.318, 200.323 )
+scale = Vector2( 1.38896, 1.20214 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="textbox" type="Sprite" parent="."]
@@ -91,7 +104,7 @@ margin_bottom = 88.0
 custom_colors/font_color = Color( 0.45098, 0.45098, 0.45098, 1 )
 custom_fonts/font = SubResource( 5 )
 shortcut = SubResource( 7 )
-text = "b: Pelear contra troll"
+text = "b: acabar con todo"
 flat = true
 icon_align = 1
 
@@ -104,12 +117,12 @@ shortcut = SubResource( 9 )
 text = "a: salir de mount eerie"
 flat = true
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="ending" type="Sprite" parent="."]
 position = Vector2( 400, 300 )
 texture = ExtResource( 6 )
 script = ExtResource( 8 )
-
-[node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="." to="." method="_on_conversation_pressed"]
 [connection signal="pressed" from="b" to="." method="_on_b_pressed"]
