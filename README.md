@@ -5,3 +5,5 @@
 el proyecto lo deberia de detectar godot automaticamente con el boton de scanear proyecto pero ante cualquier duda podeis contactarme sin problema
 
 juegalo aqui: https://gabubonico.itch.io/sotm
+
+EDIT: no se si el proyecto es compatible con la ultima version de godot, no esta mantenido para godot > 3
